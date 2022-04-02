@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Catatan extends Model
 {
     use HasFactory;
+
+    /**
+    * fillable
+    *
+    * @var array
+    */
+    protected $fillable = [
+        'tanggal', 'waktu', 'lokasi', 'suhu'
+    ];
 }
+
+

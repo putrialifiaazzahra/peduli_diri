@@ -40,6 +40,7 @@ class LoginController extends Controller
             'nik' => 'required',
             'password' => 'required',
         ]);
+        
         $fieldType = filter_var($request->nik, FILTER_VALIDATE_EMAIL) ? 'email' : 'nik';
         if(auth()->attempt(array(
             $fieldType => $input['nik'],
