@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TAMBAH CATATAN PERJALANAN | PEDULI DIRI</title>
+    <title>TAMBAH USER | PEDULI DIRI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -15,16 +15,16 @@
                     <div class="card-body">
                         <a href="{{ route('home') }}" class="btn btn-md btn-danger mb-3">Kembali</a>
 
-                        <form action="{{ route('catatan.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                         
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Tanggal</label>
-                                <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal" value="{{ old('tanggal') }}" >
+                                <label class="font-weight-bold">NIK</label>
+                                <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" >
                             
-                                <!-- error message untuk tanggal -->
-                                @error('tanggal')
+                                <!-- error message untuk nik -->
+                                @error('nik')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -32,11 +32,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Waktu</label>
-                                <input type="time" class="form-control @error('waktu') is-invalid @enderror" name="waktu" value="{{ old('waktu') }}" placeholder="Masukkan Waktu">
+                                <label class="font-weight-bold">NAMA LENGKAP</label>
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" placeholder="Masukkan nama">
                             
-                                <!-- error message untuk waktu -->
-                                @error('waktu')
+                                <!-- error message untuk nama -->
+                                @error('nama')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -44,23 +44,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Lokasi Perjalanan</label>
-                                <input type="text" class="form-control @error('lokasi') is-invalid @enderror" name="lokasi" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi Perjalanan">
+                                <label class="font-weight-bold">Email</label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukkan email Perjalanan">
                             
                                 <!-- error message untuk nama siswa -->
-                                @error('lokasi')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="font-weight-bold">Suhu Tubuh</label>
-                                <input type="text" class="form-control @error('suhu') is-invalid @enderror" name="suhu" value="{{ old('suhu') }}" placeholder="Masukkan Suhu Tubuh">
-                            
-                                <!-- error message untuk nama siswa -->
-                                @error('suhu')
+                                @error('email')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>

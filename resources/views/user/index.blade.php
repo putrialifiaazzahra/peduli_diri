@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DATA CATATAN PERJALANAN | PEDULI DIRI</title>
+    <title>DATA USER CATATAN PERJALANAN | PEDULI DIRI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -18,23 +18,23 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">TANGGAL</th>
-                                <th scope="col">WAKTU</th>
-                                <th scope="col">LOKASI PERJALANAN</th>
-                                <th scope="col">SUHU TUBUH</th>
+                                <th scope="col">NIK</th>
+                                <th scope="col">NAMA LENGKAP</th>
+                                <th scope="col">EMAIL</th>
+                                <th scope="col">ROLE</th>
                                 <th scope="col">AKSI</th>
                               </tr>
                             </thead>
                             <tbody>
-                              @forelse ($catatans as $catatan)
+                              @forelse ($users as $user)
                                 <tr>
-                                    <td>{{ $catatan->tanggal }}</td>
-                                    <td>{!! $catatan->waktu !!}</td>
-                                    <td>{!! $catatan->lokasi !!}</td>
-                                    <td>{!! $catatan->suhu !!}</td>
+                                    <td>{{ $user->nik }}</td>
+                                    <td>{!! $user->nama !!}</td>
+                                    <td>{!! $user->email !!}</td>
+                                    <td>{!! $user->role !!}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ ('catatan.destroy') }}" method="POST">
-                                            <a href="{{ ('catatan.edit') }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ ('user.destroy') }}" method="POST">
+                                            <a href="{{ ('user.edit') }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -43,12 +43,12 @@
                                 </tr>
                               @empty
                                   <div class="alert alert-danger">
-                                      CATATAN PERJALANAN BELUM TERSEDIA.
+                                      USER PEDULI DIRI - CATATAN PERJALANAN BELUM TERSEDIA.
                                   </div>
                               @endforelse
                             </tbody>
                           </table>  
-                          {{ $catatans->links() }}
+                          {{ $users->links() }}
                     </div>
                 </div>
             </div>

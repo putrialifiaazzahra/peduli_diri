@@ -24,7 +24,7 @@
         @if(Auth::user()->role == 'admin')
             <div class="col-md-5 bg-white rounded p-3 d-flex">
                 <i class="bi bi-people-fill display-3 me-3"></i>
-                <a href="/catatan" class="d-flex align-items-center text-dark text-decoration-none">
+                <a href="/user" class="d-flex align-items-center text-dark text-decoration-none">
                     <h1>Users</h1>
                 </a>
             </div>
