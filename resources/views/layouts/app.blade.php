@@ -33,11 +33,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        {{-- <a href="/catatan" class="nav-link">
-                            Catatan
-                        </a> --}}
-                    </ul>
+                    @if(Auth::user()->role !== 'admin')    
+                        {{-- menu navbar buat user biasa --}}
+                        <ul class="navbar-nav me-auto">
+                            <a href="/catatan" class="nav-link">
+                                Catatan
+                            </a>
+                        </ul>
+                    @else
+                        {{-- menu navbar buat admin --}}
+                        <p>Admin</p>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
