@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -74,4 +74,54 @@
     </script>
 
 </body>
-</html>
+</html> --}}
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border-0 shadow-sm rounded">
+                <div class="card-body p-5">
+                    <a href="{{ route('home') }}" class="btn btn-md btn-secondary mb-3">Kembali</a>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">TANGGAL</th>
+                            <th scope="col">WAKTU</th>
+                            <th scope="col">LOKASI PERJALANAN</th>
+                            <th scope="col">SUHU TUBUH</th>
+                            <th scope="col">AKSI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @forelse ($catatans as $catatan)
+                            <tr>
+                                <td>{{ $catatan->tanggal }}</td>
+                                <td>{!! $catatan->waktu !!}</td>
+                                <td>{!! $catatan->lokasi !!}</td>
+                                <td>{!! $catatan->suhu !!}</td>
+                                <td class="text-center">
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ ('catatan.destroy') }}" method="POST">
+                                        <a href="/catatan/edit" class="btn btn-sm btn-primary">EDIT</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                    </form>
+                                </td>
+                            </tr>
+                          @empty
+                              <div class="alert alert-danger">
+                                  CATATAN PERJALANAN BELUM TERSEDIA.
+                              </div>
+                          @endforelse
+                        </tbody>
+                      </table>  
+                      {{ $catatans->links() }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
