@@ -14,8 +14,8 @@ class CatatanController extends Controller
      */
     public function index()
     {
-        $catatans = Catatan::latest()->paginate(10);
-        return view('catatan.index', compact('catatans'));
+        $catatan = Catatan::all();
+        return view('catatan.index', compact('catatan'));
     }
 
     /**
@@ -70,24 +70,25 @@ class CatatanController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return \Illuminate\Http\Response;
      */
-    public function edit(Catatan $catatan)
+    public function edit($id)
     {
+        $catatan = Catatan::findOrFail($id);
         return view('catatan.edit', compact('catatan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @param  mixed $catatan
+     * @return void
      */
     public function update(Request $request, Catatan $catatan)
     {

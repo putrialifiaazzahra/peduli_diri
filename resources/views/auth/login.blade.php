@@ -3,7 +3,7 @@
 @section('content')
 <div class="container pt-4">
     <div class="row my-5 justify-content-center align-items-center">
-        <div class="col-7">
+        <div class="col-5">
             @if(session()->has('gagal'))
             <div class="alert alert-danger alert-dismissible" role="alert">
                 {{ session('gagal') }}
@@ -45,7 +45,7 @@
                             </a>
 
                             <button type="submit" class="btn btn-primary ms-auto">
-                                {{ __('Login') }}
+                                {{ __('Masuk') }}
                             </button>
                         </div>
                 </div>
