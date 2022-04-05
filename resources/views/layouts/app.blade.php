@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/home">
                     <i class="bi bi-house"></i>
                     <span>Beranda</span></a>
             </li>
@@ -56,18 +56,18 @@
                 Users
             </div>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/catatan">
-                    <i class="bi bi-journal-text"></i>
-                    <span>Catatan Perjalanan</span></a>
-            </li>
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="/catatan/create">
                     <i class="bi bi-journal-plus"></i>
                     <span>Buat Catatan</span></a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/catatan">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Catatan Perjalanan</span></a>
             </li>
 
             <!-- Divider -->
@@ -177,7 +177,16 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <div>
+                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>

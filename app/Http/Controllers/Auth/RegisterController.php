@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'nik' => ['required', 'string', 'max:255', 'unique:users,nik'],
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -63,13 +63,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data) {
+
         return User::create([
             'nik' => $data['nik'],
             'nama' => $data['nama'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $nik = data['nik'];
+        $nama = data['nama'];
+
+        $file = Storage::put('myfile.txt', "$nik - $nama");
     }
 }

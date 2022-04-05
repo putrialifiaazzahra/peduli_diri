@@ -8,6 +8,7 @@
             </div>
             <div class="card-body">
                 <form action="{{ route('catatan.store') }}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
                 
                     @csrf
 

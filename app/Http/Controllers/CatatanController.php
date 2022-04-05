@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CatatanController extends Controller
 {
@@ -43,8 +44,11 @@ class CatatanController extends Controller
             'suhu'      => 'required'
         ]);
 
+        // dd(Auth::user()->nik);
+
 
         $catatan = Catatan::create([
+            'id_user'   => $request->id_user,
             'tanggal'   => $request->tanggal,
             'waktu'     => $request->waktu,
             'lokasi'    => $request->lokasi,
