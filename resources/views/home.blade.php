@@ -41,9 +41,7 @@
                         @forelse ($catatan as $catatan)
                             <li>{{ $catatan->tanggal }} - {!! $catatan->lokasi !!} - {!! $catatan->suhu !!} </li>
                     @empty
-                        <div class="alert alert-danger">
                             <li class="text-danger">CATATAN PERJALANAN BELUM TERSEDIA</li>
-                        </div>
                     @endforelse
                     </ul>
                 </div>

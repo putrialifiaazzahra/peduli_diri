@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $catatan = Catatan::all();
+        $catatan = Catatan::where('id_user', Auth::id())->skip(0)->take(10)->get();
         return view('home', compact('catatan'));
     }
 }

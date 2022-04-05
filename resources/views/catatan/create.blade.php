@@ -7,9 +7,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Buat Catatan Perjalanan</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('catatan.store') }}" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
-                
+                <form action="{{ route('catatan.store') }}" method="POST" enctype="multipart/form-data">       
                     @csrf
 
                     <div class="form-group mb-2">

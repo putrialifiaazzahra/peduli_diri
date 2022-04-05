@@ -15,7 +15,7 @@ class CatatanController extends Controller
      */
     public function index()
     {
-        $catatan = Catatan::all();
+        $catatan = Catatan::where('id_user', Auth::id())->get();
         return view('catatan.index', compact('catatan'));
     }
 
@@ -48,7 +48,7 @@ class CatatanController extends Controller
 
 
         $catatan = Catatan::create([
-            'id_user'   => $request->id_user,
+            'id_user'   => Auth::id(),
             'tanggal'   => $request->tanggal,
             'waktu'     => $request->waktu,
             'lokasi'    => $request->lokasi,
